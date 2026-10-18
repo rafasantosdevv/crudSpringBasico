@@ -1,6 +1,7 @@
 package com.bkcompleto.produtos.repository;
 
 import com.bkcompleto.produtos.model.Produto;
+import com.bkcompleto.produtos.model.exception.ResourcesNotFoundException;
 import com.fasterxml.jackson.annotation.OptBoolean;
 import org.springframework.stereotype.Repository;
 
@@ -54,7 +55,7 @@ public class ProdutoRepository {
 
         //Encontrando Produto
         if (produtoAchado.isEmpty()) {
-            throw new InputMismatchException("Não foi possível deletar o produto.");
+            throw new ResourcesNotFoundException("Não foi possível deletar o produto.");
         }
         //Deletando produto
         delProduto(produto.getId());
